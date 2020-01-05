@@ -12,14 +12,18 @@
     "src"
   ],
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
     "@commitlint/config-lerna-scopes": "^8.3.4",
     "babel-eslint": "10.0.3",
+    "babel-jest": "^24.9.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.3.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
@@ -31,6 +35,6 @@
   "scripts": {
     "lint": "eslint src/. --ext .js",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "jest --verbose=false"
+    "test": "jest"
   }
 }
