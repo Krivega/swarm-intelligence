@@ -1,6 +1,7 @@
 import {
   objectiveFunction,
   currentVelocityRatio,
+  isBetterValueOfBestValue,
   localVelocityRatio,
   globalVelocityRatio,
   initPosition,
@@ -12,7 +13,7 @@ import {
   nextVelocity,
   globalBestPosition,
   dimension,
-  getArrayWithRandomValues
+  getArrayWithRandomValuesFake
 } from '../../__mocks__';
 import { resolveCalcVelocity } from '../computation';
 import Boid from '../index';
@@ -23,7 +24,7 @@ const calcVelocity = resolveCalcVelocity({
   localVelocityRatio,
   globalVelocityRatio,
   globalBestPosition,
-  getArrayWithRandomValues
+  getArrayWithRandomValues: getArrayWithRandomValuesFake
 });
 
 describe('Boid', () => {
@@ -32,6 +33,7 @@ describe('Boid', () => {
   beforeEach(() => {
     boid = new Boid({
       objectiveFunction,
+      isBetterValueOfBestValue,
       position: initPosition,
       velocity: initVelocity
     });
@@ -39,6 +41,7 @@ describe('Boid', () => {
 
   it('init', () => {
     expect(boid._objectiveFunction).toBe(objectiveFunction);
+    expect(boid._isBetterValueOfBestValue).toBe(isBetterValueOfBestValue);
     expect(boid.position).toEqual(initPosition);
     expect(boid.bestPosition).toEqual(initPosition);
     expect(boid.bestValue).toBe(valueOfInitPosition);
@@ -57,6 +60,7 @@ describe('Boid', () => {
   it('nextIteration to bad position', () => {
     boid = new Boid({
       objectiveFunction,
+      isBetterValueOfBestValue,
       position: initPosition,
       velocity: badVelocity
     });

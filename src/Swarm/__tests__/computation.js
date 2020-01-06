@@ -2,22 +2,31 @@ import {
   minValues,
   maxValues,
   initPosition,
-  initVelocity,
   dimension,
-  getArrayWithRandomValues
+  getArrayWithRandomValuesFake
 } from '../../__mocks__';
 import { getInitPosition, getInitVelocity } from '../computation';
 
 describe('computation', () => {
   it('getInitPosition', () => {
-    const value = getInitPosition({ dimension, getArrayWithRandomValues, minValues, maxValues });
+    const value = getInitPosition({
+      dimension,
+      minValues,
+      maxValues,
+      getArrayWithRandomValues: getArrayWithRandomValuesFake
+    });
 
     expect(value).toEqual(initPosition);
   });
 
   it('getInitVelocity', () => {
-    const value = getInitVelocity({ dimension, getArrayWithRandomValues, minValues, maxValues });
+    const value = getInitVelocity({
+      dimension,
+      minValues,
+      maxValues,
+      getArrayWithRandomValues: getArrayWithRandomValuesFake
+    });
 
-    expect(value).toEqual(initVelocity);
+    expect(value).toEqual([-160, 40]);
   });
 });

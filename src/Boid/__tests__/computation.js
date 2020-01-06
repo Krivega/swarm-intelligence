@@ -8,7 +8,7 @@ import {
   nextVelocity,
   globalBestPosition,
   dimension,
-  getArrayWithRandomValues
+  getArrayWithRandomValuesFake
 } from '../../__mocks__';
 import { resolveCalcVelocity, calcPosition } from '../computation';
 
@@ -18,7 +18,7 @@ const calcVelocity = resolveCalcVelocity({
   localVelocityRatio,
   globalVelocityRatio,
   globalBestPosition,
-  getArrayWithRandomValues
+  getArrayWithRandomValues: getArrayWithRandomValuesFake
 });
 
 describe('computation', () => {

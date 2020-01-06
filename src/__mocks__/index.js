@@ -1,20 +1,24 @@
-export const objectiveFunction = position =>
-  position.reduce((value, accumulator) => value + accumulator);
+import parabola, {
+  isBetterValueOfBestValue as _isBetterValueOfBestValue
+} from '../objectiveFunctions/parabola';
 
-export const size = 10;
+export const objectiveFunction = position => parabola(position);
+export const isBetterValueOfBestValue = _isBetterValueOfBestValue;
+
+export const size = 200;
 export const minValues = [-100, -100];
 export const maxValues = [100, 100];
 export const currentVelocityRatio = 0.1;
 export const localVelocityRatio = 1.0;
 export const globalVelocityRatio = 5.0;
 export const dimension = 2;
-export const getArrayWithRandomValues = () => [0.1, 0.6];
+export const getArrayWithRandomValuesFake = () => [0.1, 0.6];
 
 export const initPosition = [-80, 20];
-export const initVelocity = [-160, 40];
+export const initVelocity = [60, -10];
 export const badVelocity = [0, 0];
-export const nextVelocity = [-4.287187078897964, 1.071796769724491];
-export const nextPosition = [-84.28718707889796, 21.07179676972449];
-export const valueOfInitPosition = -60;
-export const valueOfNextPosition = -63.21539030917347;
+export const nextVelocity = [1.6076951545867364, -0.26794919243112275];
+export const nextPosition = [-78.39230484541326, 19.73205080756888];
+export const valueOfInitPosition = 6380;
+export const valueOfNextPosition = 6125.62;
 export const globalBestPosition = initPosition;

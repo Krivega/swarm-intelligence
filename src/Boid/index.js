@@ -1,8 +1,9 @@
 import { calcPosition } from './computation';
 
 class Boid {
-  constructor({ objectiveFunction, position, velocity }) {
+  constructor({ objectiveFunction, isBetterValueOfBestValue, position, velocity }) {
     this._objectiveFunction = objectiveFunction;
+    this._isBetterValueOfBestValue = isBetterValueOfBestValue;
     this.position = [...position];
     this.bestPosition = [...position];
     this.bestValue = this._calcValue(this.position);
@@ -36,7 +37,7 @@ class Boid {
   _checkAndUpdateBestPosition() {
     const value = this._calcValue(this.position);
 
-    if (value < this.bestValue) {
+    if (this._isBetterValueOfBestValue(value, this.bestValue)) {
       this.bestValue = value;
       this.bestPosition = [...this.position];
     }
