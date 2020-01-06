@@ -41,7 +41,7 @@ describe('Boid', () => {
     expect(boid._objectiveFunction).toBe(objectiveFunction);
     expect(boid.position).toEqual(initPosition);
     expect(boid.bestPosition).toEqual(initPosition);
-    expect(boid.bestValue).toEqual(valueOfInitPosition);
+    expect(boid.bestValue).toBe(valueOfInitPosition);
     expect(boid.velocity).toEqual(initVelocity);
   });
 
@@ -51,7 +51,7 @@ describe('Boid', () => {
     expect(boid.velocity).toEqual(nextVelocity);
     expect(boid.position).toEqual(nextPosition);
     expect(boid.bestPosition).toEqual(nextPosition);
-    expect(boid.bestValue).toEqual(valueOfNextPosition);
+    expect(boid.bestValue).toBe(valueOfNextPosition);
   });
 
   it('nextIteration to bad position', () => {
@@ -65,6 +65,6 @@ describe('Boid', () => {
     expect(boid.velocity).toEqual(badVelocity);
     expect(boid.position).toEqual(initPosition);
     expect(boid.bestPosition).toEqual(initPosition);
-    expect(boid.bestValue).toEqual(valueOfInitPosition);
+    expect(boid.bestValue).toBe(valueOfInitPosition);
   });
 });

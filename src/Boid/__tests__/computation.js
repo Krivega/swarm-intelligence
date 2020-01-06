@@ -1,6 +1,4 @@
 import {
-  minValues,
-  maxValues,
   currentVelocityRatio,
   localVelocityRatio,
   globalVelocityRatio,
@@ -12,12 +10,7 @@ import {
   dimension,
   getArrayWithRandomValues
 } from '../../__mocks__';
-import {
-  getInitPosition,
-  getInitVelocity,
-  resolveCalcVelocity,
-  calcPosition
-} from '../computation';
+import { resolveCalcVelocity, calcPosition } from '../computation';
 
 const calcVelocity = resolveCalcVelocity({
   dimension,
@@ -29,18 +22,6 @@ const calcVelocity = resolveCalcVelocity({
 });
 
 describe('computation', () => {
-  it('getInitPosition', () => {
-    const value = getInitPosition({ dimension, getArrayWithRandomValues, minValues, maxValues });
-
-    expect(value).toEqual(initPosition);
-  });
-
-  it('getInitVelocity', () => {
-    const value = getInitVelocity({ dimension, getArrayWithRandomValues, minValues, maxValues });
-
-    expect(value).toEqual(initVelocity);
-  });
-
   it('calcVelocity', () => {
     const currentVelocity = initVelocity;
     const localBestPosition = initPosition;

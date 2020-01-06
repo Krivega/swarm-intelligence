@@ -1,6 +1,7 @@
 export const objectiveFunction = position =>
   position.reduce((value, accumulator) => value + accumulator);
 
+export const size = 10;
 export const minValues = [-100, -100];
 export const maxValues = [100, 100];
 export const currentVelocityRatio = 0.1;
