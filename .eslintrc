@@ -52,6 +52,7 @@
     ], // approved
     "prettier/prettier": "error", // approved
     "no-underscore-dangle": "off", // approved
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }] // approved
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }], // approved
+    "jest/no-mocks-import": "off" // approved
   }
 }
