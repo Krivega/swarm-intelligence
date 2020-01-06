@@ -5,6 +5,7 @@ import {
   globalVelocityRatio,
   initPosition,
   initVelocity,
+  badVelocity,
   nextPosition,
   valueOfInitPosition,
   valueOfNextPosition,
@@ -44,12 +45,26 @@ describe('Boid', () => {
     expect(boid.velocity).toEqual(initVelocity);
   });
 
-  it('nextIteration', () => {
+  it('nextIteration to god position', () => {
     boid.nextIteration(calcVelocity);
 
     expect(boid.velocity).toEqual(nextVelocity);
     expect(boid.position).toEqual(nextPosition);
     expect(boid.bestPosition).toEqual(nextPosition);
     expect(boid.bestValue).toEqual(valueOfNextPosition);
+  });
+
+  it('nextIteration to bad position', () => {
+    boid = new Boid({
+      objectiveFunction,
+      position: initPosition,
+      velocity: badVelocity
+    });
+
+    boid.nextIteration(calcVelocity);
+    expect(boid.velocity).toEqual(badVelocity);
+    expect(boid.position).toEqual(initPosition);
+    expect(boid.bestPosition).toEqual(initPosition);
+    expect(boid.bestValue).toEqual(valueOfInitPosition);
   });
 });
