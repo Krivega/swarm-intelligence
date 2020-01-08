@@ -26,7 +26,7 @@ const drawer = ({ swarm, canvasElement }) => {
   animationRequest.animate(() => {
     swarm.nextIteration();
     draw(swarm.boids);
-  }, 30);
+  });
 };
 
 export default drawer;
