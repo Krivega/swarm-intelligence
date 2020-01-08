@@ -57,29 +57,31 @@ class Swarm {
       maxValues: this._maxValues
     });
 
-    return new Boid({
-      objectiveFunction: this._objectiveFunction,
-      isBetterValueOfBestValue: this._isBetterValueOfBestValue,
+    const boid = new Boid({
       position,
       velocity
     });
+
+    boid.initBestPosition({
+      objectiveFunction: this._objectiveFunction,
+      isBetterValueOfBestValue: this._isBetterValueOfBestValue
+    });
+
+    return boid;
   }
 
   _updateBestValues({ bestValue, bestPosition }) {
-    if (
-      this.bestPosition === undefined ||
-      this._isBetterValueOfBestValue(bestValue, this.bestValue)
-    ) {
+    if (this.bestValue === undefined || this._isBetterValueOfBestValue(bestValue, this.bestValue)) {
       this.bestValue = bestValue;
       this.bestPosition = bestPosition;
     }
   }
 
   nextIteration() {
-    this._boids.forEach(boid => this._nextBoidIteration(boid));
+    this._boids.forEach(boid => this._nextIterationBoid(boid));
   }
 
-  _nextBoidIteration(boid) {
+  _nextIterationBoid(boid) {
     const calcVelocity = resolveCalcVelocity({
       dimension: this._dimension,
       getArrayWithRandomValues: this._getArrayWithRandomValues,
@@ -89,7 +91,11 @@ class Swarm {
       globalBestPosition: this.bestPosition
     });
 
-    boid.nextIteration(calcVelocity);
+    boid.nextIteration({
+      calcVelocity,
+      objectiveFunction: this._objectiveFunction,
+      isBetterValueOfBestValue: this._isBetterValueOfBestValue
+    });
 
     const { bestValue, bestPosition } = boid;
 
@@ -97,6 +103,32 @@ class Swarm {
       bestValue,
       bestPosition
     });
+  }
+
+  resetBestPosition({ bestValue, bestPosition }) {
+    delete this.bestValue;
+
+    this._boids.forEach(boid => this._resetBestPositionBoid(boid));
+
+    this._updateBestValues({
+      bestValue,
+      bestPosition
+    });
+  }
+
+  _resetBestPositionBoid(boid) {
+    boid.resetBestPosition({
+      objectiveFunction: this._objectiveFunction,
+      isBetterValueOfBestValue: this._isBetterValueOfBestValue
+    });
+  }
+
+  get boids() {
+    return this._boids.map(({ velocity, bestPosition, position }) => ({
+      velocity,
+      bestPosition,
+      position
+    }));
   }
 }
 

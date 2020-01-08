@@ -1,23 +1,24 @@
 import { calcPosition } from './computation';
 
 class Boid {
-  constructor({ objectiveFunction, isBetterValueOfBestValue, position, velocity }) {
-    this._objectiveFunction = objectiveFunction;
-    this._isBetterValueOfBestValue = isBetterValueOfBestValue;
+  constructor({ position, velocity }) {
     this.position = [...position];
-    this.bestPosition = [...position];
-    this.bestValue = this._calcValue(this.position);
     this.velocity = velocity;
   }
 
-  _calcValue(position) {
-    return this._objectiveFunction(position);
+  resetBestPosition({ objectiveFunction, isBetterValueOfBestValue }) {
+    delete this.bestValue;
+    this.initBestPosition({ objectiveFunction, isBetterValueOfBestValue });
   }
 
-  nextIteration(calcVelocity) {
+  initBestPosition({ objectiveFunction, isBetterValueOfBestValue }) {
+    this._checkAndUpdateBestPosition({ objectiveFunction, isBetterValueOfBestValue });
+  }
+
+  nextIteration({ calcVelocity, objectiveFunction, isBetterValueOfBestValue }) {
     this._changeVelocity(calcVelocity);
     this._move(this.velocity);
-    this._checkAndUpdateBestPosition();
+    this._checkAndUpdateBestPosition({ objectiveFunction, isBetterValueOfBestValue });
   }
 
   _changeVelocity(calcVelocity) {
@@ -34,10 +35,10 @@ class Boid {
     this.position = calcPosition({ velocity, currentPosition: this.position });
   }
 
-  _checkAndUpdateBestPosition() {
-    const value = this._calcValue(this.position);
+  _checkAndUpdateBestPosition({ objectiveFunction, isBetterValueOfBestValue }) {
+    const value = objectiveFunction(this.position);
 
-    if (this._isBetterValueOfBestValue(value, this.bestValue)) {
+    if (this.bestValue === undefined || isBetterValueOfBestValue(value, this.bestValue)) {
       this.bestValue = value;
       this.bestPosition = [...this.position];
     }

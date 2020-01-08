@@ -1,8 +1,8 @@
-import parabola, {
+import paraboloid, {
   isBetterValueOfBestValue as _isBetterValueOfBestValue
-} from '../objectiveFunctions/parabola';
+} from '../objectiveFunctions/paraboloid';
 
-export const objectiveFunction = position => parabola(position);
+export const objectiveFunction = position => paraboloid(position);
 export const isBetterValueOfBestValue = _isBetterValueOfBestValue;
 
 export const size = 200;
@@ -19,6 +19,6 @@ export const initVelocity = [60, -10];
 export const badVelocity = [0, 0];
 export const nextVelocity = [1.6076951545867364, -0.26794919243112275];
 export const nextPosition = [-78.39230484541326, 19.73205080756888];
-export const valueOfInitPosition = 6380;
-export const valueOfNextPosition = 6125.62;
+export const valueOfInitPosition = 6800;
+export const valueOfNextPosition = 6534.71;
 export const globalBestPosition = initPosition;

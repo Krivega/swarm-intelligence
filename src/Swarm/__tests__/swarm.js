@@ -47,5 +47,6 @@ describe('Swarm', () => {
     expect(swarm.bestValue).toBe(valueOfInitPosition);
 
     expect(swarm._boids.length).toBe(size);
+    expect(swarm.boids.length).toBe(size);
   });
 });

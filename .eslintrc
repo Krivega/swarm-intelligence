@@ -3,6 +3,9 @@
   "parserOptions": {},
   "extends": ["plugin:jest/recommended", "airbnb", "prettier"],
   "plugins": ["jest", "prettier"],
+  "env": {
+    "browser": true
+  },
   "settings": {
     "import/resolver": {
       "node": {
