@@ -7,7 +7,7 @@
     "swarm",
     "intelligence"
   ],
-  "version": "0.0.2",
+  "version": "0.0.1",
   "author": {
     "name": "Krivega Dmitriy",
     "email": "mr.krivega@gmail.com",
@@ -63,12 +63,12 @@
     "build": "NODE_ENV=production rollup --config",
     "build:examples": "NODE_ENV=production rollup --config examples.rollup.config.js",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
+    "prepublishOnly": " npm run lint",
     "release": "standard-version"
   },
   "standard-version": {
     "scripts": {
-      "prerelease": "npm run lint ",
+      "prerelease": "npm run lint",
       "postchangelog": "prettier --write \"CHANGELOG.md\""
     }
   },
