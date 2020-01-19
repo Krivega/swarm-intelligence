@@ -31,9 +31,10 @@ export const resolveCalcVelocity = ({
     globalVelocityRatio
   );
 
-  return multiplyArrayByNumber(
-    foldArrays(currentVelocity, localBestVelocity, globalBestVelocity),
-    commonRatio
+  return foldArrays(
+    multiplyArrayByNumber(currentVelocity, commonRatio),
+    multiplyArrayByNumber(localBestVelocity, commonRatio),
+    multiplyArrayByNumber(globalBestVelocity, commonRatio)
   );
 };
 

@@ -1,7 +1,7 @@
 export const isBetterValueOfBestValue = (value, bestValue) => value >= 0 && value < bestValue;
 export const recommendedVelocities = {
-  currentVelocityRatio: 0.03,
-  localVelocityRatio: 1.0,
+  currentVelocityRatio: 0.5,
+  localVelocityRatio: 2.0,
   globalVelocityRatio: 5.0
 };
 

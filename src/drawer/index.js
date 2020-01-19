@@ -9,14 +9,15 @@ const drawer = ({ swarm, canvasElement }) => {
     fillBackground(context, 'rgba(255,241,235,0.25)');
   };
 
+  const drawBoid = ({ position }) => {
+    const [x, y] = position;
+
+    drawRect(context, { x, y, color: '#543D5E' });
+  };
+
   const draw = boids => {
     resetCanvas();
-
-    boids.forEach(({ position }) => {
-      const [x, y] = position;
-
-      drawRect(context, { x, y, color: '#543D5E' });
-    });
+    boids.forEach(drawBoid);
   };
 
   draw(swarm.boids);
