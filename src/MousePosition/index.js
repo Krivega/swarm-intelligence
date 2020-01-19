@@ -1,4 +1,4 @@
-import Events from '../Events';
+import Events from 'events-constructor';
 
 const CHANGE_EVENT_NAME = ['change'];
 
