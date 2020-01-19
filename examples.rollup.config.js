@@ -31,5 +31,12 @@ export default [
     input: {
       rastrigin: './src/examples/rastrigin/index.js'
     }
+  },
+  {
+    output,
+    plugins,
+    input: {
+      rosenbrock: './src/examples/rosenbrock/index.js'
+    }
   }
 ];
