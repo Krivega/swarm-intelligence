@@ -38,5 +38,12 @@ export default [
     input: {
       rosenbrock: './src/examples/rosenbrock/index.js'
     }
+  },
+  {
+    output,
+    plugins,
+    input: {
+      griewank: './src/examples/griewank/index.js'
+    }
   }
 ];
