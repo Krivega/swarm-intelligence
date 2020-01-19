@@ -3,10 +3,10 @@ import getArrayWithRandomValues from '../../utils/getArrayWithRandomValues';
 import objectiveFunction, {
   isBetterValueOfBestValue,
   recommendedVelocities
-} from '../../objectiveFunctions/paraboloid';
+} from '../../objectiveFunctions/schwefel';
 import Swarm from '../index';
 
-describe('Swarm parabola', () => {
+describe('Swarm schwefel', () => {
   let swarm;
 
   beforeEach(() => {

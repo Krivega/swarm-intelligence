@@ -21,9 +21,7 @@ const drawer = ({ swarm, canvasElement }) => {
 
   draw(swarm.boids);
 
-  animationRequest.activate();
-
-  animationRequest.animate(() => {
+  animationRequest.run(() => {
     swarm.nextIteration();
     draw(swarm.boids);
   });

@@ -1,10 +1,10 @@
 import Swarm from '../../Swarm';
 import createCanvas, { setSizeCanvas } from '../../canvas';
 import getArrayWithRandomValues from '../../utils/getArrayWithRandomValues';
-import paraboloid, {
+import schwefel, {
   isBetterValueOfBestValue,
   recommendedVelocities
-} from '../../objectiveFunctions/paraboloid';
+} from '../../objectiveFunctions/schwefel';
 import resolveObjectiveFunctionMouseTracking from '../../resolveObjectiveFunctionMouseTracking';
 import createConfig from './config';
 
@@ -30,7 +30,7 @@ const onChangeTarget = ([targetX, targetY]) => {
 
 const objectiveFunction = resolveObjectiveFunctionMouseTracking({
   canvasElement,
-  objectiveFunction: paraboloid,
+  objectiveFunction: schwefel,
   onChange: onChangeTarget
 });
 
