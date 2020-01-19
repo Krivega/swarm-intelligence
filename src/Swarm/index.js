@@ -1,6 +1,5 @@
 import Boid from '../Boid';
-import { getInitPosition, getInitVelocity } from './computation';
-import { resolveCalcVelocity } from '../Boid/computation';
+import { getInitPosition, getInitVelocity, resolveCalcVelocity } from './computation';
 
 class Swarm {
   constructor({

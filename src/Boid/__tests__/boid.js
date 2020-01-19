@@ -15,7 +15,7 @@ import {
   dimension,
   getArrayWithRandomValuesFake
 } from '../../__mocks__';
-import { resolveCalcVelocity } from '../computation';
+import { resolveCalcVelocity } from '../../Swarm/computation';
 import Boid from '../index';
 
 const calcVelocity = resolveCalcVelocity({
