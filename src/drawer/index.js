@@ -1,4 +1,4 @@
-import AnimationRequest from '../AnimationRequest';
+import AnimationRequest from 'request-animation-runner';
 import { fillBackground, drawRect } from '../canvas';
 
 const drawer = ({ swarm, canvasElement }) => {

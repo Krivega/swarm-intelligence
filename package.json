@@ -71,5 +71,8 @@
       "prerelease": "npm run lint && CI=true npm test",
       "postchangelog": "prettier --write \"CHANGELOG.md\""
     }
+  },
+  "dependencies": {
+    "request-animation-runner": "^0.0.2"
   }
 }
