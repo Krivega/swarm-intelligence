@@ -24,5 +24,12 @@ export default [
     input: {
       schwefel: './src/examples/schwefel/index.js'
     }
+  },
+  {
+    output,
+    plugins,
+    input: {
+      rastrigin: './src/examples/rastrigin/index.js'
+    }
   }
 ];

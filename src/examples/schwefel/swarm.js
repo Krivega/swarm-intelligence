@@ -6,7 +6,7 @@ import schwefel, {
   recommendedVelocities
 } from '../../objectiveFunctions/schwefel';
 import resolveObjectiveFunctionMouseTracking from '../../resolveObjectiveFunctionMouseTracking';
-import createConfig from './config';
+import createConfig from '../createConfig';
 
 export const canvasElement = createCanvas();
 
