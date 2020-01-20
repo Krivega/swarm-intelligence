@@ -1,11 +1,11 @@
-import Swarm from '../../Swarm';
-import createCanvas, { setSizeCanvas } from '../../canvas';
-import getArrayWithRandomValues from '../../utils/getArrayWithRandomValues';
-import rastrigin, {
+import Swarm from '../../src/Swarm';
+import createCanvas, { setSizeCanvas } from '../canvas';
+import getArrayWithRandomValues from '../../src/utils/getArrayWithRandomValues';
+import griewank, {
   isBetterValueOfBestValue,
   recommendedVelocities
-} from '../../objectiveFunctions/rastrigin';
-import resolveObjectiveFunctionMouseTracking from '../../resolveObjectiveFunctionMouseTracking';
+} from '../../src/objectiveFunctions/griewank';
+import resolveObjectiveFunctionMouseTracking from '../resolveObjectiveFunctionMouseTracking';
 import createConfig from '../createConfig';
 
 export const canvasElement = createCanvas();
@@ -32,7 +32,7 @@ const onChangeTarget = ([targetX, targetY]) => {
 
 const objectiveFunction = resolveObjectiveFunctionMouseTracking({
   canvasElement,
-  objectiveFunction: rastrigin,
+  objectiveFunction: griewank,
   onChange: onChangeTarget
 });
 

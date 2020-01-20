@@ -1,14 +1,16 @@
-import Swarm from '../../Swarm';
-import createCanvas, { setSizeCanvas } from '../../canvas';
-import getArrayWithRandomValues from '../../utils/getArrayWithRandomValues';
-import schwefel, {
+import Swarm from '../../src/Swarm';
+import createCanvas, { setSizeCanvas } from '../canvas';
+import getArrayWithRandomValues from '../../src/utils/getArrayWithRandomValues';
+import rastrigin, {
   isBetterValueOfBestValue,
   recommendedVelocities
-} from '../../objectiveFunctions/schwefel';
-import resolveObjectiveFunctionMouseTracking from '../../resolveObjectiveFunctionMouseTracking';
+} from '../../src/objectiveFunctions/rastrigin';
+import resolveObjectiveFunctionMouseTracking from '../resolveObjectiveFunctionMouseTracking';
 import createConfig from '../createConfig';
 
 export const canvasElement = createCanvas();
+
+const velocity = 0.08;
 
 const setSizeCanvasFromWindow = () =>
   setSizeCanvas(
@@ -30,12 +32,17 @@ const onChangeTarget = ([targetX, targetY]) => {
 
 const objectiveFunction = resolveObjectiveFunctionMouseTracking({
   canvasElement,
-  objectiveFunction: schwefel,
+  objectiveFunction: rastrigin,
   onChange: onChangeTarget
 });
 
 const swarm = new Swarm({
-  ...createConfig({ recommendedVelocities, maxX: canvasElement.width, maxY: canvasElement.height }),
+  ...createConfig({
+    velocity,
+    recommendedVelocities,
+    maxX: canvasElement.width,
+    maxY: canvasElement.height
+  }),
   isBetterValueOfBestValue,
   getArrayWithRandomValues,
   objectiveFunction

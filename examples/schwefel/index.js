@@ -1,4 +1,4 @@
-import drawer from '../../drawer';
+import drawer from '../drawer';
 import swarm, { canvasElement } from './swarm';
 
 document.body.style.overflow = 'hidden';

@@ -5,45 +5,45 @@ import { terser } from 'rollup-plugin-terser';
 
 const output = {
   dir: './dist/examples',
-  format: 'iife',
-  plugins: [terser()]
+  format: 'iife'
 };
-const plugins = [resolve(), babel()];
+
+const plugins = [resolve(), babel(), terser()];
 
 export default [
   {
     output,
     plugins,
     input: {
-      paraboloid: './src/examples/paraboloid/index.js'
+      paraboloid: './examples/paraboloid/index.js'
     }
   },
   {
     output,
     plugins,
     input: {
-      schwefel: './src/examples/schwefel/index.js'
+      schwefel: './examples/schwefel/index.js'
     }
   },
   {
     output,
     plugins,
     input: {
-      rastrigin: './src/examples/rastrigin/index.js'
+      rastrigin: './examples/rastrigin/index.js'
     }
   },
   {
     output,
     plugins,
     input: {
-      rosenbrock: './src/examples/rosenbrock/index.js'
+      rosenbrock: './examples/rosenbrock/index.js'
     }
   },
   {
     output,
     plugins,
     input: {
-      griewank: './src/examples/griewank/index.js'
+      griewank: './examples/griewank/index.js'
     }
   }
 ];

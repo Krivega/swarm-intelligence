@@ -1,16 +1,16 @@
-import Swarm from '../../Swarm';
-import createCanvas, { setSizeCanvas } from '../../canvas';
-import getArrayWithRandomValues from '../../utils/getArrayWithRandomValues';
-import rosenbrock, {
+import Swarm from '../../src/Swarm';
+import createCanvas, { setSizeCanvas } from '../canvas';
+import getArrayWithRandomValues from '../../src/utils/getArrayWithRandomValues';
+import paraboloid, {
   isBetterValueOfBestValue,
   recommendedVelocities
-} from '../../objectiveFunctions/rosenbrock';
-import resolveObjectiveFunctionMouseTracking from '../../resolveObjectiveFunctionMouseTracking';
+} from '../../src/objectiveFunctions/paraboloid';
+import resolveObjectiveFunctionMouseTracking from '../resolveObjectiveFunctionMouseTracking';
 import createConfig from '../createConfig';
 
 export const canvasElement = createCanvas();
 
-const velocity = 0.08;
+const velocity = 0.4;
 
 const setSizeCanvasFromWindow = () =>
   setSizeCanvas(
@@ -32,7 +32,7 @@ const onChangeTarget = ([targetX, targetY]) => {
 
 const objectiveFunction = resolveObjectiveFunctionMouseTracking({
   canvasElement,
-  objectiveFunction: rosenbrock,
+  objectiveFunction: paraboloid,
   onChange: onChangeTarget
 });
 

@@ -26,7 +26,8 @@
   "browser": "dist/index.bundle.js",
   "main:src": "src/index.js",
   "files": [
-    "dist",
+    "dist/**/*",
+    "dist/**/**/*",
     "README.md"
   ],
   "devDependencies": {
@@ -48,7 +49,7 @@
     "eslint-plugin-react": "^7.18.0",
     "husky": "^4.0.10",
     "jest": "24.9.0",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^10.0.0",
     "prettier": "^1.19.1",
     "rollup": "^1.29.0",
     "rollup-plugin-babel": "^4.3.3",
@@ -57,11 +58,16 @@
     "standard-version": "^7.0.1"
   },
   "scripts": {
-    "lint": "eslint src/. --ext .js",
-    "format": "prettier --write \"src/**/*.js\"",
+    "lint": "npm run lint:src && npm run lint:examples",
+    "lint:src": "eslint src/. --ext .js",
+    "lint:examples": "eslint examples/. --ext .js",
+    "format": "npm run format:src && npm run format:examples",
+    "format:src": "prettier --write \"src/**/*.js\"",
+    "format:examples": "prettier --write \"examples/**/*.js\"",
     "test": "jest",
     "build": "NODE_ENV=production rollup --config",
     "build:examples": "NODE_ENV=production rollup --config examples.rollup.config.js",
+    "build:modules": "NODE_ENV=production rollup --config modules.rollup.config.js",
     "prepare": "npm run build",
     "prepublishOnly": " npm run lint",
     "release": "standard-version"
