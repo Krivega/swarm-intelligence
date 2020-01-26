@@ -3,8 +3,8 @@ import { fillBackground, drawRect } from '../canvas';
 
 const drawer = ({
   canvasElement,
-  backgroundColor = 'rgba(255,241,235,0.25)',
-  boidColor = '#543D5E'
+  backgroundColor = 'rgba(217,217,217,0.25)',
+  boidColor = '#231f20'
 }) => {
   const animationRequest = new AnimationRequest();
   const context = canvasElement.getContext('2d');
