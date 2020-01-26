@@ -41,15 +41,13 @@ describe('Swarm rosenbrock', () => {
   it('resetBestPosition', () => {
     const { bestValue, bestPosition } = swarm;
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10; i++) {
       swarm.nextIteration();
     }
 
-    swarm.resetBestPosition({
-      bestValue,
-      bestPosition
-    });
+    swarm.resetBestPosition(bestPosition);
 
-    expect(bestValue).toBe(bestValue);
+    expect(swarm.bestPosition).toBe(bestPosition);
+    expect(swarm.bestValue).toBe(bestValue);
   });
 });

@@ -104,9 +104,10 @@ class Swarm {
     });
   }
 
-  resetBestPosition({ bestValue, bestPosition }) {
-    delete this.bestValue;
+  resetBestPosition(bestPosition) {
+    const bestValue = this._objectiveFunction(bestPosition);
 
+    delete this.bestValue;
     this._boids.forEach(boid => this._resetBestPositionBoid(boid));
 
     this._updateBestValues({
