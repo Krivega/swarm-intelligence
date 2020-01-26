@@ -15,28 +15,25 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div class="configurator">
-      <div class="configurator__item">
-        <label>
+      <fieldset class="configurator__item">
+        <label for="select-choice">
           Objective function
-          <br />
-          <select class="js-objective-function-select">
-            <option selected value="paraboloid">Paraboloid</option>
-            <option value="schwefel">Schwefel</option>
-            <option value="rastrigin">Rastrigin</option>
-            <option value="rosenbrock">Rosenbrock</option>
-            <option value="griewank">Griewank</option>
-          </select>
         </label>
-      </div>
-      <div class="configurator__item">
-        <label>
-          <input type="checkbox" class="js-follow-cursor" />
+        <select id="select-choice" class="js-objective-function-select">
+          <option selected value="paraboloid">Paraboloid</option>
+          <option value="schwefel">Schwefel</option>
+          <option value="rastrigin">Rastrigin</option>
+          <option value="rosenbrock">Rosenbrock</option>
+          <option value="griewank">Griewank</option>
+        </select>
+      </fieldset>
+      <fieldset class="configurator__item">
+        <input type="checkbox" class="js-follow-cursor" id="check1" />
+        <label for="check1">
           Follow the cursor
         </label>
-      </div>
-      <div class="configurator__item">
-        <button class="js-reset">Reset</button>
-      </div>
+      </fieldset>
+      <button class="js-reset">Reset</button>
     </div>
     <script type="text/javascript" src="../dist/demo.js"></script>
   </body>
