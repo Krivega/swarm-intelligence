@@ -15,25 +15,96 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div class="configurator">
-      <fieldset class="configurator__item">
-        <label for="select-choice">
-          Objective function
-        </label>
-        <select id="select-choice" class="js-objective-function-select">
-          <option selected value="paraboloid">Paraboloid</option>
-          <option value="schwefel">Schwefel</option>
-          <option value="rastrigin">Rastrigin</option>
-          <option value="rosenbrock">Rosenbrock</option>
-          <option value="griewank">Griewank</option>
-        </select>
-      </fieldset>
-      <fieldset class="configurator__item">
-        <input type="checkbox" class="js-follow-cursor" id="check1" />
-        <label for="check1">
-          Follow the cursor
-        </label>
-      </fieldset>
-      <button class="js-reset">Reset</button>
+      <div>
+        <div class="configurator__form">
+          <fieldset class="configurator__item">
+            <label for="select-choice">
+              Objective function
+            </label>
+            <select id="select-choice" class="js-objective-function-select">
+              <option selected value="paraboloid">Paraboloid</option>
+              <option value="schwefel">Schwefel</option>
+              <option value="rastrigin">Rastrigin</option>
+              <option value="rosenbrock">Rosenbrock</option>
+              <option value="griewank">Griewank</option>
+            </select>
+          </fieldset>
+          <fieldset class="configurator__item">
+            <input type="checkbox" class="js-follow-cursor" id="check1" />
+            <label for="check1">
+              Follow the cursor
+            </label>
+          </fieldset>
+          <button class="js-reset">Reset</button>
+        </div>
+
+        <div class="configurator__info">
+          <dl>
+            <dt>Function</dt>
+            <dd class="js-function-value">&nbsp;</dd>
+
+            <dt>Size</dt>
+            <dd class="js-size-value">&nbsp;</dd>
+
+            <dt>Minimum values</dt>
+            <dd class="js-minValues-value">&nbsp;</dd>
+
+            <dt>Maximum values</dt>
+            <dd class="js-maxValues-value">&nbsp;</dd>
+
+            <dt>Current velocity ratio</dt>
+            <dd class="js-currentVelocityRatio-value">&nbsp;</dd>
+
+            <dt>Local velocity ratio</dt>
+            <dd class="js-localVelocityRatio-value">&nbsp;</dd>
+
+            <dt>Global velocity ratio</dt>
+            <dd class="js-globalVelocityRatio-value">&nbsp;</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="configurator__graph">
+        <img
+          class="js-graph"
+          data-id="paraboloid"
+          src="./img/paraboloid.png"
+          width="320"
+          height="240"
+        />
+        <img
+          loading="lazy"
+          class="is-hidden js-graph"
+          data-id="griewank"
+          src="./img/griewank.png"
+          width="320"
+          height="240"
+        />
+        <img
+          loading="lazy"
+          class="is-hidden js-graph"
+          data-id="rastrigin"
+          src="./img/rastrigin.png"
+          width="320"
+          height="240"
+        />
+        <img
+          loading="lazy"
+          class="is-hidden js-graph"
+          data-id="rosenbrock"
+          src="./img/rosenbrock.png"
+          width="320"
+          height="240"
+        />
+        <img
+          loading="lazy"
+          class="is-hidden js-graph"
+          data-id="schwefel"
+          src="./img/schwefel.png"
+          width="320"
+          height="240"
+        />
+      </div>
     </div>
     <script type="text/javascript" src="../dist/demo.js"></script>
   </body>

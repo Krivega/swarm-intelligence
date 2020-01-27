@@ -5,6 +5,6 @@ export const recommendedVelocities = {
   globalVelocityRatio: 5.0
 };
 
-const paraboloid = ([x, y]) => +(x * x + y * y).toFixed(2);
+const paraboloid = ([x, y]) => +(x ** 2 + y ** 2).toFixed(2);
 
 export default paraboloid;

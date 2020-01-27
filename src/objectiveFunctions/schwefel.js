@@ -5,9 +5,13 @@ export const recommendedVelocities = {
   globalVelocityRatio: 5.0
 };
 
-const schwefel = ([x, y]) =>
-  +(-x * Math.sin(2 * Math.sqrt(Math.abs(x))) - y * Math.sin(2 * Math.sqrt(Math.abs(y)))).toFixed(
-    2
-  );
+const schwefelForOne = item => item * Math.sin(2 * Math.sqrt(Math.abs(item)));
+const shift = 0; // origin 418.9829
+
+const schwefel = values =>
+  +(
+    shift * values.length -
+    values.map(schwefelForOne).reduce((accumulator, item) => accumulator + item, 0)
+  ).toFixed(2);
 
 export default schwefel;

@@ -5,7 +5,7 @@ export const recommendedVelocities = {
   globalVelocityRatio: 5.0
 };
 
-const rastriginForOne = x => x * x - 10 * Math.cos(2 * Math.PI * x);
+const rastriginForOne = item => item ** 2 - 10 * Math.cos(2 * Math.PI * item);
 
 const rastrigin = values =>
   +(

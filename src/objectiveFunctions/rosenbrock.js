@@ -5,6 +5,6 @@ export const recommendedVelocities = {
   globalVelocityRatio: 5.0
 };
 
-const rosenbrock = ([x, y]) => +((1 - x) ** 2 + 100 * (y - x * x) ** 2).toFixed(2);
+const rosenbrock = ([x, y]) => +((1 - x) ** 2 + 100 * (y - x ** 2) ** 2).toFixed(2);
 
 export default rosenbrock;
