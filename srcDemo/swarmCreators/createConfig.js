@@ -12,7 +12,7 @@ const createConfig = ({ maxX, maxY, recommendedVelocities, velocity = 0.1 }) => 
     maxValues,
     size,
     dimension,
-    currentVelocityRatio: (currentVelocityRatio * velocity).toFixed(2)
+    currentVelocityRatio: (currentVelocityRatio * velocity).toFixed(2),
   };
 };
 

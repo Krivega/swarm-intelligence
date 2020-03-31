@@ -4,7 +4,7 @@ import { fillBackground, drawRect } from '../canvas';
 const drawer = ({
   canvasElement,
   backgroundColor = 'rgba(217,217,217,0.25)',
-  boidColor = '#231f20'
+  boidColor = '#231f20',
 }) => {
   const animationRequest = new AnimationRequest();
   const context = canvasElement.getContext('2d');
@@ -19,12 +19,12 @@ const drawer = ({
     drawRect(context, { x, y, color: boidColor });
   };
 
-  const draw = boids => {
+  const draw = (boids) => {
     resetCanvas();
     boids.forEach(drawBoid);
   };
 
-  const start = swarm => {
+  const start = (swarm) => {
     animationRequest.activate();
     draw(swarm.boids);
 

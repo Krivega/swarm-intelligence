@@ -2,7 +2,7 @@ import Swarm from '../../src/Swarm';
 import getArrayWithRandomValues from '../../src/utils/getArrayWithRandomValues';
 import schwefel, {
   isBetterValueOfBestValue,
-  recommendedVelocities
+  recommendedVelocities,
 } from '../../src/objectiveFunctions/schwefel';
 import createConfig from './createConfig';
 
@@ -11,11 +11,11 @@ const createSwarm = ({ canvasElement, adjustObjectiveFunction }) => {
     ...createConfig({
       recommendedVelocities,
       maxX: canvasElement.width,
-      maxY: canvasElement.height
+      maxY: canvasElement.height,
     }),
     isBetterValueOfBestValue,
     getArrayWithRandomValues,
-    objectiveFunction: adjustObjectiveFunction(schwefel)
+    objectiveFunction: adjustObjectiveFunction(schwefel),
   });
 
   return swarm;

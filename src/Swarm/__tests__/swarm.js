@@ -10,7 +10,7 @@ import {
   minValues,
   maxValues,
   size,
-  dimension
+  dimension,
 } from '../../__mocks__';
 import Swarm from '../index';
 
@@ -28,7 +28,7 @@ describe('Swarm', () => {
       maxValues,
       size,
       dimension,
-      getArrayWithRandomValues: getArrayWithRandomValuesFake
+      getArrayWithRandomValues: getArrayWithRandomValuesFake,
     });
   });
 

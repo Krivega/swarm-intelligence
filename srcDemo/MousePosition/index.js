@@ -38,7 +38,7 @@ class MousePosition {
     this._events.on(CHANGE_EVENT_NAME, callback);
   }
 
-  _onChangePosition = event => {
+  _onChangePosition = (event) => {
     this._requestID = window.requestAnimationFrame(() => {
       const rect = this._element.getBoundingClientRect();
 

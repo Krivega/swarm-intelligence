@@ -1,8 +1,8 @@
 import paraboloid, {
-  isBetterValueOfBestValue as _isBetterValueOfBestValue
+  isBetterValueOfBestValue as _isBetterValueOfBestValue,
 } from '../objectiveFunctions/paraboloid';
 
-export const objectiveFunction = position => paraboloid(position);
+export const objectiveFunction = (position) => paraboloid(position);
 export const isBetterValueOfBestValue = _isBetterValueOfBestValue;
 
 export const size = 200;

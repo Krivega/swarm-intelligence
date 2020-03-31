@@ -14,7 +14,7 @@ export const setSizeCanvas = (canvasElement, width, height) => {
 /* eslint-disable no-param-reassign */
 export const fillBackground = (context, color) => {
   const {
-    canvas: { width, height }
+    canvas: { width, height },
   } = context;
 
   context.fillStyle = color;

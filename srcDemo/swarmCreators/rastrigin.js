@@ -2,7 +2,7 @@ import Swarm from '../../src/Swarm';
 import getArrayWithRandomValues from '../../src/utils/getArrayWithRandomValues';
 import rastrigin, {
   isBetterValueOfBestValue,
-  recommendedVelocities
+  recommendedVelocities,
 } from '../../src/objectiveFunctions/rastrigin';
 import createConfig from './createConfig';
 
@@ -14,11 +14,11 @@ const createSwarm = ({ canvasElement, adjustObjectiveFunction }) => {
       velocity,
       recommendedVelocities,
       maxX: canvasElement.width,
-      maxY: canvasElement.height
+      maxY: canvasElement.height,
     }),
     isBetterValueOfBestValue,
     getArrayWithRandomValues,
-    objectiveFunction: adjustObjectiveFunction(rastrigin)
+    objectiveFunction: adjustObjectiveFunction(rastrigin),
   });
 
   return swarm;

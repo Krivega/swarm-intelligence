@@ -24,7 +24,7 @@ class ObjectiveFunctionMouseTracking {
     this._events.trigger(CHANGE_EVENT_NAME);
   };
 
-  resolveObjectiveFunction = objectiveFunction => ([x, y]) => {
+  resolveObjectiveFunction = (objectiveFunction) => ([x, y]) => {
     const [targetX, targetY] = this.target;
 
     return objectiveFunction([targetX - x, targetY - y]);

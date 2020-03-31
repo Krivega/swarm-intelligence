@@ -27,7 +27,7 @@ class Boid {
     this.velocity = calcVelocity({
       currentVelocity: velocity,
       localBestPosition: bestPosition,
-      currentPosition: position
+      currentPosition: position,
     });
   }
 

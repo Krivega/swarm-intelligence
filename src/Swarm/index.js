@@ -12,7 +12,7 @@ class Swarm {
     minValues,
     maxValues,
     size,
-    dimension
+    dimension,
   }) {
     this._getArrayWithRandomValues = getArrayWithRandomValues;
     this._isBetterValueOfBestValue = isBetterValueOfBestValue;
@@ -35,7 +35,7 @@ class Swarm {
 
       this._updateBestValues({
         bestValue,
-        bestPosition
+        bestPosition,
       });
 
       return boid;
@@ -47,23 +47,23 @@ class Swarm {
       dimension: this._dimension,
       getArrayWithRandomValues: this._getArrayWithRandomValues,
       minValues: this._minValues,
-      maxValues: this._maxValues
+      maxValues: this._maxValues,
     });
     const velocity = getInitVelocity({
       dimension: this._dimension,
       getArrayWithRandomValues: this._getArrayWithRandomValues,
       minValues: this._minValues,
-      maxValues: this._maxValues
+      maxValues: this._maxValues,
     });
 
     const boid = new Boid({
       position,
-      velocity
+      velocity,
     });
 
     boid.initBestPosition({
       objectiveFunction: this._objectiveFunction,
-      isBetterValueOfBestValue: this._isBetterValueOfBestValue
+      isBetterValueOfBestValue: this._isBetterValueOfBestValue,
     });
 
     return boid;
@@ -77,7 +77,7 @@ class Swarm {
   }
 
   nextIteration() {
-    this._boids.forEach(boid => this._nextIterationBoid(boid));
+    this._boids.forEach((boid) => this._nextIterationBoid(boid));
   }
 
   _nextIterationBoid(boid) {
@@ -87,20 +87,20 @@ class Swarm {
       currentVelocityRatio: this._currentVelocityRatio,
       localVelocityRatio: this._localVelocityRatio,
       globalVelocityRatio: this._globalVelocityRatio,
-      globalBestPosition: this.bestPosition
+      globalBestPosition: this.bestPosition,
     });
 
     boid.nextIteration({
       calcVelocity,
       objectiveFunction: this._objectiveFunction,
-      isBetterValueOfBestValue: this._isBetterValueOfBestValue
+      isBetterValueOfBestValue: this._isBetterValueOfBestValue,
     });
 
     const { bestValue, bestPosition } = boid;
 
     this._updateBestValues({
       bestValue,
-      bestPosition
+      bestPosition,
     });
   }
 
@@ -108,18 +108,18 @@ class Swarm {
     const bestValue = this._objectiveFunction(bestPosition);
 
     delete this.bestValue;
-    this._boids.forEach(boid => this._resetBestPositionBoid(boid));
+    this._boids.forEach((boid) => this._resetBestPositionBoid(boid));
 
     this._updateBestValues({
       bestValue,
-      bestPosition
+      bestPosition,
     });
   }
 
   _resetBestPositionBoid(boid) {
     boid.resetBestPosition({
       objectiveFunction: this._objectiveFunction,
-      isBetterValueOfBestValue: this._isBetterValueOfBestValue
+      isBetterValueOfBestValue: this._isBetterValueOfBestValue,
     });
   }
 
@@ -127,7 +127,7 @@ class Swarm {
     return this._boids.map(({ velocity, bestPosition, position }) => ({
       velocity,
       bestPosition,
-      position
+      position,
     }));
   }
 }

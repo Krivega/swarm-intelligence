@@ -2,7 +2,7 @@ import { minValues, maxValues, size, dimension } from '../../__mocks__';
 import getArrayWithRandomValues from '../../utils/getArrayWithRandomValues';
 import objectiveFunction, {
   isBetterValueOfBestValue,
-  recommendedVelocities
+  recommendedVelocities,
 } from '../../objectiveFunctions/schwefel';
 import Swarm from '../index';
 
@@ -18,7 +18,7 @@ describe('Swarm schwefel', () => {
       size,
       dimension,
       getArrayWithRandomValues,
-      objectiveFunction
+      objectiveFunction,
     });
   });
 

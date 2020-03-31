@@ -12,7 +12,7 @@ const globalVelocityRatioElement = document.getElementsByClassName(
 const graphElements = Array.from(document.getElementsByClassName('js-graph'));
 
 const renderInfo = ({ swarm, formula, id }) => {
-  graphElements.forEach(element => {
+  graphElements.forEach((element) => {
     const isHidden = element.dataset.id !== id;
 
     element.classList.toggle('is-hidden', isHidden);

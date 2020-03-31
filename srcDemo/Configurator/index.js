@@ -9,7 +9,7 @@ class Configurator {
     this._events = new Events([
       CHANGE_OBJECTIVE_FUNCTION_EVENT_NAME,
       CHANGE_FOLLOW_CURSOR_EVENT_NAME,
-      RESET_EVENT_NAME
+      RESET_EVENT_NAME,
     ]);
 
     this._initElements();

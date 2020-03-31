@@ -13,7 +13,7 @@ export const resolveCalcVelocity = ({
   localVelocityRatio,
   globalVelocityRatio,
   globalBestPosition,
-  getArrayWithRandomValues
+  getArrayWithRandomValues,
 }) => ({ currentVelocity, localBestPosition, currentPosition }) => {
   const rndCurrentBestPosition = getArrayWithRandomValues(dimension);
   const rndGlobalBestPosition = getArrayWithRandomValues(dimension);
@@ -57,6 +57,6 @@ export const getInitVelocity = ({ dimension, maxValues, minValues, getArrayWithR
   return getRandomValues({
     randomValues,
     minValues: minValuesVelocity,
-    middleValues: middleValuesVelocity
+    middleValues: middleValuesVelocity,
   });
 };

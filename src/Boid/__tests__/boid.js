@@ -13,7 +13,7 @@ import {
   nextVelocity,
   globalBestPosition,
   dimension,
-  getArrayWithRandomValuesFake
+  getArrayWithRandomValuesFake,
 } from '../../__mocks__';
 import { resolveCalcVelocity } from '../../Swarm/computation';
 import Boid from '../index';
@@ -24,7 +24,7 @@ const calcVelocity = resolveCalcVelocity({
   localVelocityRatio,
   globalVelocityRatio,
   globalBestPosition,
-  getArrayWithRandomValues: getArrayWithRandomValuesFake
+  getArrayWithRandomValues: getArrayWithRandomValuesFake,
 });
 
 describe('Boid', () => {
@@ -33,7 +33,7 @@ describe('Boid', () => {
   beforeEach(() => {
     boid = new Boid({
       position: initPosition,
-      velocity: initVelocity
+      velocity: initVelocity,
     });
   });
 
@@ -59,14 +59,14 @@ describe('Boid', () => {
     boid.nextIteration({
       calcVelocity,
       isBetterValueOfBestValue,
-      objectiveFunction: objectiveFunctionJested
+      objectiveFunction: objectiveFunctionJested,
     });
 
     expect(objectiveFunctionJested).toHaveBeenCalledTimes(2);
 
     boid.resetBestPosition({
       isBetterValueOfBestValue,
-      objectiveFunction: objectiveFunctionJested
+      objectiveFunction: objectiveFunctionJested,
     });
 
     expect(objectiveFunctionJested).toHaveBeenCalledTimes(3);
@@ -89,7 +89,7 @@ describe('Boid', () => {
       objectiveFunction,
       isBetterValueOfBestValue,
       position: initPosition,
-      velocity: badVelocity
+      velocity: badVelocity,
     });
 
     boid.initBestPosition({ objectiveFunction, isBetterValueOfBestValue });

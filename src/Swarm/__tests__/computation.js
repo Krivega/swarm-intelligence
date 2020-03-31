@@ -9,7 +9,7 @@ import {
   nextVelocity,
   globalBestPosition,
   dimension,
-  getArrayWithRandomValuesFake
+  getArrayWithRandomValuesFake,
 } from '../../__mocks__';
 import { resolveCalcVelocity, getInitPosition, getInitVelocity } from '../computation';
 
@@ -19,7 +19,7 @@ const calcVelocity = resolveCalcVelocity({
   localVelocityRatio,
   globalVelocityRatio,
   globalBestPosition,
-  getArrayWithRandomValues: getArrayWithRandomValuesFake
+  getArrayWithRandomValues: getArrayWithRandomValuesFake,
 });
 
 describe('computation', () => {
@@ -30,7 +30,7 @@ describe('computation', () => {
     const value = calcVelocity({
       currentVelocity,
       localBestPosition,
-      currentPosition
+      currentPosition,
     });
 
     expect(value).toEqual(nextVelocity);
@@ -41,7 +41,7 @@ describe('computation', () => {
       dimension,
       minValues,
       maxValues,
-      getArrayWithRandomValues: getArrayWithRandomValuesFake
+      getArrayWithRandomValues: getArrayWithRandomValuesFake,
     });
 
     expect(value).toEqual(initPosition);
@@ -52,7 +52,7 @@ describe('computation', () => {
       dimension,
       minValues,
       maxValues,
-      getArrayWithRandomValues: getArrayWithRandomValuesFake
+      getArrayWithRandomValues: getArrayWithRandomValuesFake,
     });
 
     expect(value).toEqual([-160, 40]);

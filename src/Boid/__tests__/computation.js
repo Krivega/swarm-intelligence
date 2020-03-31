@@ -6,7 +6,7 @@ describe('computation', () => {
     const currentPosition = initPosition;
     const value = calcPosition({
       currentPosition,
-      velocity: nextVelocity
+      velocity: nextVelocity,
     });
 
     expect(value).toEqual(nextPosition);
