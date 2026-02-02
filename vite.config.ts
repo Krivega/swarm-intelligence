@@ -15,24 +15,16 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: [
-        path.resolve('src', 'index.ts'),
-        path.resolve('src', 'objectiveFunctions', 'index.ts'),
-        path.resolve('src', 'swarmCreators', 'index.ts'),
-        path.resolve('src', 'render', 'index.ts'),
-      ],
+      entry: {
+        index: path.resolve('src', 'index.ts'),
+        'objectiveFunctions/index': path.resolve('src', 'objectiveFunctions', 'index.ts'),
+        'swarmCreators/index': path.resolve('src', 'swarmCreators', 'index.ts'),
+        'render/index': path.resolve('src', 'render', 'index.ts'),
+      },
       name: 'SwarmIntelligence',
-      formats: ['es', 'cjs', 'iife'],
-      fileName: (format) => {
-        if (format === 'es') {
-          return 'index.js';
-        }
-
-        if (format === 'cjs') {
-          return 'index.cjs';
-        }
-
-        return 'index.bundle.js';
+      formats: ['es', 'cjs'],
+      fileName: (format, entryName) => {
+        return `${entryName}.${format === 'cjs' ? 'cjs' : 'js'}`;
       },
     },
     rollupOptions: {

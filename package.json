@@ -57,10 +57,10 @@
     "build": "vite build",
     "build:demo": "vite build --config vite.demo.config.ts",
     "format": "yarn format:src && yarn format:demo",
-    "format:demo": "prettier --write \"srcDemo/**/*.ts\"",
+    "format:demo": "prettier --write \"demo/**/*.ts\"",
     "format:src": "prettier --write \"src/**/*.ts\"",
     "lint": "yarn lint:ts && yarn lint:src && yarn lint:demo",
-    "lint:demo": "eslint srcDemo",
+    "lint:demo": "eslint demo",
     "lint:src": "eslint src",
     "lint:ts": "tsc --noEmit",
     "prepare": "yarn build && yarn build:demo",
@@ -77,8 +77,8 @@
     "request-animation-runner": "^1.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.0",
-    "@commitlint/config-conventional": "^20.4.0",
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
     "@eslint/compat": "^2.0.2",
     "@krivega/eslint-config": "^1.1.8",
     "@types/jest": "^30.0.0",
