@@ -41,8 +41,12 @@ class ObjectiveFunctionMouseTracking {
     this.moveTarget();
   }
 
-  public onChange(callback: () => void): void {
-    this.events.on(CHANGE_EVENT_NAME, callback);
+  public onChange(callback: () => void) {
+    return this.events.on(CHANGE_EVENT_NAME, callback);
+  }
+
+  public offChange(callback: () => void) {
+    this.events.off(CHANGE_EVENT_NAME, callback);
   }
 
   public moveTarget = (): void => {
