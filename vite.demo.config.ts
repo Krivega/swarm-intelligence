@@ -1,20 +1,23 @@
 import { defineConfig } from 'vite';
 import tsConfigPaths from 'vite-tsconfig-paths';
 
-export default defineConfig({
-  build: {
-    outDir: 'demoDist',
-    rollupOptions: {
-      input: {
-        demo: 'demo/index.ts',
-      },
-      output: {
-        entryFileNames: '[name].js',
-        format: 'iife',
-      },
+/** Non-root base for static hosts (e.g. GitHub Pages project site). Set via DEMO_BASE in CI. */
+function resolveDemoBase(): string {
+  const fromEnv = process.env.DEMO_BASE?.trim();
+
+  if (fromEnv !== undefined) {
+    return fromEnv.endsWith('/') ? fromEnv : `${fromEnv}/`;
+  }
+
+  return '/';
+}
+
+export default defineConfig(() => {
+  return {
+    base: resolveDemoBase(),
+    build: {
+      outDir: 'demoDist',
     },
-    minify: true,
-    sourcemap: true,
-  },
-  plugins: [tsConfigPaths()],
+    plugins: [tsConfigPaths()],
+  };
 });
