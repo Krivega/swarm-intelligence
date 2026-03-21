@@ -47,15 +47,17 @@ console.log('Лучшая позиция:', swarm.bestPosition);
 console.log('Лучшее значение:', swarm.bestValue);
 ```
 
-## Запуск демо
+## Demo
+
+Страница с выбором целевой функции (Paraboloid, Rastrigin, Rosenbrock, Griewank, Schwefel), отображением формулы и анимацией роя на Canvas. Опция «следовать за курсором» задаёт целевую точку по положению мыши.
+
+- **Demo**: [https://krivega.github.io/swarm-intelligence/](https://krivega.github.io/swarm-intelligence/)
 
 Локальный запуск демо с визуализацией:
 
 ```bash
 yarn start
 ```
-
-Откроется страница с выбором целевой функции (Paraboloid, Rastrigin, Rosenbrock, Griewank, Schwefel), отображением формулы и анимацией роя на Canvas. Опция «следовать за курсором» задаёт целевую точку по положению мыши.
 
 ## Скрипты
 
